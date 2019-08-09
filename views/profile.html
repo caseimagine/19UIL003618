@@ -4,9 +4,9 @@
     <span translate>seja bem-vindo(a)!</span>
 </p>
 
-<p>O prazo limite é dia {{grupo.deadlineInscricao}}.</p>
+<p>Para que possamos organizar sua viagem da melhor forma, pedimos que preencha esse formulário até o dia {{grupo.deadlineInscricao}}. Contamos com a sua ajuda!</p>
 
-<p><span translate="Profile.MandatoryFields"></span></p>
+<p>Lembrando que os campos marcados com * são de preenchimento obrigatório.</p>
 
 <form name="userForm" ng-submit="submitForm(userForm.$valid)" ng-if="titular">
     <fieldset ng-repeat="atribuido in formulario.lists['Campos definidos'] | groupBy:'atribuicao'" ng-disabled="disableFields()">
@@ -104,7 +104,7 @@
 
         </div>
     </fieldset>
-    <div ng-if="userForm.$error.required || userForm.$error.mask || userForm.$error.email" class="alert alert-danger">
+    <div ng-if="userForm.$error.required || userForm.$error.parse || userForm.$error.mask || userForm.$error.email" class="alert alert-danger">
         <div class="alert-icon">
             <i class="material-icons">error_outline</i>
         </div>
@@ -117,6 +117,8 @@
     </div>
     <button type="submit" class="btn btn-primary" ng-disabled="submitting || userForm.$invalid" ng-show="canSubmit()"><span
             translate>Enviar</span></button>
+
+            <pre>{{userForm | json}}</pre>
 </form>
 
 <br>
