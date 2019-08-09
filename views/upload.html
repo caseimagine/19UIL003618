@@ -165,9 +165,6 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-primary btn-s" ng-click="submitForm()">
-        <span class="glyphicon glyphicon-ok"></span> {{'Upload.Finalizar' | translate}}
-    </button>
     <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()"
         ng-if="!allUploadsComplete && usuario.Wave === 0" ng-disabled="!checaSeTemSasToken(uploader.queue) ">
         <span class="glyphicon glyphicon-upload"></span> {{'Upload.Send' | translate}}
@@ -185,6 +182,10 @@
         <span class="glyphicon glyphicon-trash"></span> {{'Upload.RemoverTodos' | translate}}
     </button>
 </div>
+
+<button type="button" class="btn btn-primary btn-s" ng-click="submitForm()">
+    <span class="glyphicon glyphicon-ok"></span> {{'Upload.Finalizar' | translate}}
+</button>
 
 <script type="text/ng-template" id="sasTokenGenerateError.html">
     <div class="modal-header">
